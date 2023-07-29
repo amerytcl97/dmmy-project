@@ -1,0 +1,15 @@
+@use "@/styles/flexes.scss" as *;
+@import "@/styles/variables.scss";
+
+aside {
+    border: $border--width solid $border--color;
+    border-radius: $border-radius--md;
+    padding-inline: $layout--padding-inline;
+    height: 100%;
+    background-color: $background-theme--focus;
+    header {
+        h3 {
+            color: black;
+        }
+    }
+}

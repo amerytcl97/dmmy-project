@@ -1,0 +1,25 @@
+@use "@/styles/flexes.scss" as *;
+@import "@/styles/variables.scss";
+
+.wrapper {
+    padding-top: 1rem;
+
+    & > .productList {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+
+        @media screen and (max-width: $screen--lg) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        & > li {
+            width: 100%;
+            flex-basis: 0;
+        }
+
+        // @include flex--row--center;
+        // flex-wrap: wrap;
+        // gap: 1rem;
+    }
+}

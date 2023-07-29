@@ -1,0 +1,42 @@
+// @mixin slidedown--animation($duration) {
+//     0% {
+//         transform: translate(0, 0);
+//     }
+
+//     100% {
+//         transform: translate(0, -100%);
+//     }
+// }
+
+@mixin keyframe($animation--name) {
+    @keyframes #{$animation--name} {
+        @content;
+    }
+}
+
+@mixin animation ($delay, $duration, $animation, $direction: forward, $fillmode: fowards) {
+    animation-delay: $delay;
+    animation-duration: $duration;
+    animation-name: $animation;
+    animation-fill-mode: $fillmode;
+    animation-direction: $direction;
+}
+
+// Fade from top to bottom 
+
+// .animation--slidein {
+//     @include animation(0, 0.5s, animation--slidein, ease);
+// }
+
+
+@include keyframe(animation--slidein) {
+    0% {
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 100%;
+        transform: translateY(0);
+    }
+}

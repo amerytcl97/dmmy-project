@@ -1,0 +1,73 @@
+@use "@/styles/flexes.scss" as *;
+@import "@/styles/variables.scss";
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 15rem 1fr;
+    gap: 1rem;
+    padding-block: $layout--padding-block;
+    padding-inline: $layout--padding-inline;
+
+    @media screen and (max-width: $screen--lg) {
+        grid-template-columns: 1fr;
+    }
+
+    & > .sidebar {
+        display: block;
+
+        @media screen and (max-width: $screen--lg) {
+            display: none;
+        }
+    }
+
+    section {
+        & > header {
+            @include flex--row;
+            justify-content: space-between;
+
+            & > .sorts {
+                @include flex--row--center;
+                gap: 1rem;
+
+                & > .sortOption {
+                    background-color: $background-theme--focus;
+                    padding-inline: $layout--padding-inline;
+                    padding-block: $layout--padding-block;
+                    border-radius: $border-radius--md;
+                    border: $border--width solid $border--color;
+                    gap: 0.5rem;
+                }
+
+                & > .sortList {
+                    background-color: $background-theme--focus;
+                    padding: $layout--padding;
+                    border: $border--width solid $border--color;
+                    border-radius: $border-radius--md;
+                }
+            }
+        }
+
+        & > .selectedFilters {
+            // background-color: red;
+            @include flex--row--center;
+            gap: 1.5rem;
+
+            & > .filterChipList {
+                @include flex--row--center;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+        }
+    }
+}
+
+.filterChip {
+    @include flex--row--center;
+    gap: 1rem;
+    background-color: $background-theme--focus;
+    border-radius: $border-radius--full;
+    border: $border--width solid $border--color;
+    width: fit-content;
+    padding-inline: 1rem;
+    padding-block: 0.5rem;
+}

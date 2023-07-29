@@ -1,0 +1,19 @@
+@use "@/styles/flexes.scss" as *;
+
+button {
+    all: unset;
+    @include flex--row--center;
+    cursor: pointer;
+
+    span {
+    }
+}
+
+
+.buttonSm {
+    font-size: small;
+}
+
+.buttonMd {
+    
+}
