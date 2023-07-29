@@ -3,18 +3,21 @@
 
 .wrapper {
     padding-top: 1rem;
+    // max-width: 100vw;
 
-    & > .productList {
+    &>.productList {
+        // width: 100%;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 2rem;
+        background-color: red;
 
         @media screen and (max-width: $screen--lg) {
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(2, 35%);
         }
 
-        & > li {
-            width: 100%;
+        &>li {
+            width: 1fr;
             flex-basis: 0;
         }
 

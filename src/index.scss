@@ -3,14 +3,13 @@
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
-  font-weight: 400;
+  // font-weight: 500;
 
   color-scheme: light dark;
   color: $background-theme--text;
   background-color: $background-theme;
 
   font-synthesis: none;
-  // font-weight: 300;
   font-size: medium;
 
   text-rendering: optimizeLegibility;
@@ -27,8 +26,10 @@ h3 {
   color: black;
 }
 
-ul, ol, li {
-  all : unset;
+ul,
+ol,
+li {
+  all: unset;
 }
 
 @media (prefers-color-scheme: light) {

@@ -1,7 +1,8 @@
 import { List, ProductCard, ProductCardProps } from "@components/index";
-import styles from "./Products.module.scss";
 import { API_GET_PRODUCTS } from "@constants";
 import { useQuery } from "@hooks/UseQuery";
+import styles from "./Products.module.scss";
+
 
 const Products = () => {
   const { data } = useQuery(
@@ -20,7 +21,7 @@ const Products = () => {
       <List<ProductCardProps>
         items={data || []}
         itemKey="title"
-        renderItems={(props) => <ProductCard {...props.value} />}
+        renderItems={({ value }) => <ProductCard {...value} />}
         className={styles.productList}
       />
     </div>
