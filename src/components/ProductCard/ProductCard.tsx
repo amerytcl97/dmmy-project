@@ -21,9 +21,11 @@ export const ProductCard = (props: ProductCardProps) => {
         <div className={styles.productCard}>
           <div className={styles.productCardImgContainer}>
             <img
-              src={thumbnail}
+              src={`${thumbnail}?width=720px`}
               alt={title}
-              //   height={100}
+              sizes="((min-width: 50em) and (max-width: 60em)) 50em,
+              ((min-width: 30em) and (max-width: 50em)) 30em,
+              (max-width: 30em) 20em"              //   height={100}
             />
           </div>
           <section>

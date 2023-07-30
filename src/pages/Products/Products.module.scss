@@ -3,20 +3,25 @@
 
 .wrapper {
     padding-top: 1rem;
-    // max-width: 100vw;
 
-    & > .productList {
-        // width: 100%;
+    &>.productList {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: 2rem;
-        background-color: red;
 
-        @media screen and (max-width: $screen--lg) {
-            grid-template-columns: repeat(2, 1fr);
+        @media (min-width : $screen--2xl) {
+            grid-template-columns: repeat(4, 1fr);
         }
 
-        & > li {
+        @media (min-width: $screen--lg) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        @media (min-width: $screen--sm) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        &>li {
             width: 1fr;
             flex-basis: 0;
         }

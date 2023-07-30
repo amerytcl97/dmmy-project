@@ -16,6 +16,10 @@
             border-bottom: $border--width solid $border--color;
             padding-block: 1rem;
             padding-inline: $layout--padding-inline;
+            
+            @media (min-width) {
+                
+            }
         }
 
         .headerFirst {
@@ -46,7 +50,8 @@
         font-size: 1rem;
         color: black;
         background-color: transparent;
-        flex-grow: 1;
+        flex: 1;
+        width : 100%;
 
         &:focus {
             outline: none;

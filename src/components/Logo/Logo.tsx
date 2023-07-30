@@ -8,7 +8,7 @@ export const Logo = () => {
       title={
         <>
           <h2 className={styles.logo}>
-            Dummy
+            {/* Dummy */}
             <b>Project</b>
           </h2>
         </>

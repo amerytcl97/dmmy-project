@@ -5,6 +5,13 @@
     font-family: $logo--font;
     font-weight: 500;
 
-    @media screen and (max-width: $screen--md) {
+    &::before {
+        content: "Dum";
+    }
+
+    @media (min-width: $screen--sm) {
+        &::before {
+            content: "Dummy";
+        }
     }
 }

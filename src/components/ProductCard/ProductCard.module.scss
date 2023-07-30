@@ -6,18 +6,30 @@
     background-color: $background-theme--focus;
     flex: 1;
 
-    & > .productCardImgContainer {
+    &>.productCardImgContainer {
         position: relative;
         height: 11rem;
         width: 100%;
         display: flex;
         align-items: flex-start;
-        align-content: flex-start;
-        & > img {
-            position: absolute;
-            padding: 0;
+        // align-content: center;
+        justify-content: center;
+        // justify-items: center;
+        background-color: white;
+
+        &>img {
+            object-fit: cover;
+            position: absolute;            
+            background-color: red;
             height: inherit;
-            width: inherit;
+            aspect-ratio: 1.45;
+            width : 100%;
+
+            // aspect-ratio: 16 / 9;
+
+            @media (max-width : $screen--lg) {
+                // object-fit: fill;
+            }
         }
     }
 
@@ -25,8 +37,8 @@
         gap: 0;
         padding-block: 0;
         padding-inline: 1rem;
-        & span {
-        }
+
+        & span {}
 
         & h2 {
             margin: 0;
