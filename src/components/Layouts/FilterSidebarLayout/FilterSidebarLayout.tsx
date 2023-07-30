@@ -5,9 +5,9 @@ import { CaretDown, SquaresFour, XCircle } from "phosphor-react";
 import styles from "./FilterSidebarLayout.module.scss";
 
 export const FilterSidebarLayout = () => {
-  const removeFilter = () => {};
+  const removeFilter = () => { };
 
-  const removeAllFilters = () => {};
+  const removeAllFilters = () => { };
 
   useEffect(() => {
     // TODO : Fetch Sidebar content from API;

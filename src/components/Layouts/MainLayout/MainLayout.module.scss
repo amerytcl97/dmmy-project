@@ -67,7 +67,7 @@
     @include flex--row--center;
     gap: 1rem;
 
-    @media screen and (max-width: $screen--md) {
+    @media (max-width: $screen--md) {
         display: none;
     }
 }
@@ -101,8 +101,7 @@
 }
 
 main {
-    max-width: 1280px;
-    margin: 0 auto;
+    flex: 1;
 }
 
 nav {

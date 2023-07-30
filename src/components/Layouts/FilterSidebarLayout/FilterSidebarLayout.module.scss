@@ -8,22 +8,19 @@
     padding-block: $layout--padding-block;
     padding-inline: $layout--padding-inline;
 
-    @media screen and (max-width: $screen--lg) {
+    @media (max-width: $screen--lg) {
         grid-template-columns: 1fr;
     }
 
     & > .sidebar {
         display: block;
 
-        @media screen and (max-width: $screen--lg) {
+        @media (max-width: $screen--lg) {
             display: none;
         }
     }
 
     section {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
         & > header {
             @include flex--row;
             flex-wrap: wrap;
@@ -39,6 +36,10 @@
             & > .sorts {
                 @include flex--row--center;
                 gap: 1rem;
+
+                @media screen and (max-width: $screen--md) {
+                    display: none;
+                }
 
                 & > .sortOption {
                     background-color: $background-theme--focus;
@@ -59,16 +60,11 @@
         }
 
         & > .selectedFilters {
-            @include flex--row;
-            justify-content: space-between;
+            // background-color: red;
+            @include flex--row--center;
+            gap: 1.5rem;
 
-            @media (max-width: $screen--sm) {
-                align-items: flex-start;
-            }
-
-            // gap: 1.5rem;
-
-            & .filterChipList {
+            & > .filterChipList {
                 @include flex--row--center;
                 flex-wrap: wrap;
                 gap: 0.5rem;
