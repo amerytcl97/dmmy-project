@@ -19,13 +19,15 @@ export const ProductCard = (props: ProductCardProps) => {
       href="/products/"
       title={
         <div className={styles.productCard}>
-          <img
-            src={thumbnail}
-            alt={title}
-            sizes=""
-            height={100}
-          />
+          <div className={styles.productCardImgContainer}>
+            <img
+              src={thumbnail}
+              alt={title}
+              //   height={100}
+            />
+          </div>
           <section>
+            <span>${price}</span>
             <h2>{title}</h2>
             <div></div>
           </section>

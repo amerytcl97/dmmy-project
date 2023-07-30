@@ -8,6 +8,7 @@
 .menu {
     @include animation(0, 0.2s, animation--slidein);
     position: absolute;
+    z-index: 10;
     background-color: $background-theme--focus;
     padding: $layout--padding;
     margin-top: 1rem;

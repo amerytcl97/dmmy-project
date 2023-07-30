@@ -96,6 +96,7 @@ export const FilterSidebarLayout = () => {
             title="Clear All Filters"
             size="sm"
             onClick={() => removeAllFilters()}
+            className={styles.clearFiltersBtn}
           />
         </div>
         <Outlet />
