@@ -1,0 +1,15 @@
+@use "@/styles/flexes.scss" as *;
+@import "@/styles/variables.scss";
+
+section {
+    @include flex--col--center;
+
+    & .title {
+        @include flex--row--center;
+        gap: 0.5rem;
+    }
+
+    & .loginContainer {
+        background-color: red;
+    }
+}

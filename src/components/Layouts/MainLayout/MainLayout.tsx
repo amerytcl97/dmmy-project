@@ -1,9 +1,23 @@
-import styles from "./MainLayout.module.scss";
 import { CaretDown, ListDashes, MagnifyingGlass, ShoppingCartSimple, UserCircle } from "phosphor-react";
 import { Button, Anchor, Logo, SearchForm, Dropdown, List } from "@components/index";
 import { Outlet } from "react-router-dom";
 import { useQuery } from "@hooks/UseQuery";
 import { API_GET_CATEGORIES } from "@constants";
+import styles from "./MainLayout.module.scss";
+
+const UserProfile = () => {
+  return (
+    <Anchor
+      href="/login"
+      title={
+        <UserCircle
+          weight="regular"
+          size={30}
+        />
+      }
+    />
+  );
+};
 
 const CategoriesDropdown = () => {
   const { data } = useQuery<string[]>(API_GET_CATEGORIES);
@@ -43,14 +57,6 @@ const CategoriesDropdown = () => {
     </Dropdown>
   );
 };
-
-// const BrandsBar = () => {
-//   return (
-//     <div>
-//       <div></div>
-//     </div>
-//   );
-// };
 
 const HeaderOne = () => {
   return (
@@ -92,7 +98,8 @@ const HeaderOne = () => {
           }
           title=""
         />
-        <Dropdown
+        <UserProfile />
+        {/* <Dropdown
           opener={({ setExpand }) => (
             <Button
               title=""
@@ -107,7 +114,7 @@ const HeaderOne = () => {
           )}
         >
           <></>
-        </Dropdown>
+        </Dropdown> */}
       </div>
     </div>
   );
