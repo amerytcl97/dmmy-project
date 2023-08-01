@@ -18,6 +18,11 @@ const Products = () => {
 
   return (
     <div className={styles.wrapper}>
+      <div className={styles.title}>
+        <h1>
+          Our Products
+        </h1>
+      </div>
       <List<ProductCardProps>
         items={data || []}
         itemKey="title"

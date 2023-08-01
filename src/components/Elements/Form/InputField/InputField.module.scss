@@ -1,0 +1,15 @@
+@use "@/styles/flexes.scss";
+
+label {
+    & input {
+        
+    }
+}
+
+.row {
+    @include flexes--row--center;
+}
+
+.column {
+    @include flexes--col;
+}

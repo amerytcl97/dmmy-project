@@ -7,10 +7,9 @@ export const Logo = () => {
       href="/"
       title={
         <>
-          <h2 className={styles.logo}>
-            {/* Dummy */}
-            <b>Project</b>
-          </h2>
+          <span className={styles.logo}>
+            <b>Shop</b>
+          </span>
         </>
       }
     />

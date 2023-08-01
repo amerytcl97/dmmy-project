@@ -2,6 +2,9 @@ $background-theme: #f1f5f9;
 $background-theme--focus: #f8fafc;
 $background-theme--content: #f4f4f5;
 $background-theme--text: #4b5563;
+$background-main--theme : rgb(243, 21, 89);
+$background-main--border: #c21147;
+$background-main--text: whitesmoke;
 $layout--padding: 15px;
 $layout--padding-right: 15px;
 $layout--padding-inline: 15px;
@@ -12,6 +15,7 @@ $border--width: 0.5px;
 $border--width-focus: 1px;
 $border-radius--full: 9999px;
 $border-radius--md: 0.375rem;
+$border-radius--sm: 0.125rem;
 $logo--font: "Titillium Web", sans-serif;
 
 $screen--md: 768px;

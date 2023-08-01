@@ -10,7 +10,7 @@
   background-color: $background-theme;
 
   font-synthesis: none;
-  font-size: medium;
+  // font-size: medium;
 
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -20,6 +20,7 @@
 
 body {
   margin: 0;
+  // box-sizing: border-box;
 }
 
 h3 {

@@ -5,27 +5,12 @@ import { useQuery } from "@hooks/UseQuery";
 import { API_GET_CATEGORIES } from "@constants";
 import styles from "./MainLayout.module.scss";
 
-const UserProfile = () => {
-  return (
-    <Anchor
-      href="/login"
-      title={
-        <UserCircle
-          weight="regular"
-          size={30}
-        />
-      }
-    />
-  );
-};
-
-const CategoriesDropdown = () => {
-  const { data } = useQuery<string[]>(API_GET_CATEGORIES);
+const CategoriesDropdown = ({ categories }: { categories: string[] }) => {
   return (
     <Dropdown
       opener={({ setExpand }) => (
         <Button
-          title="Categories"
+          title="ALL CATEGORIES"
           startIcon={
             <ListDashes
               weight="regular"
@@ -44,7 +29,7 @@ const CategoriesDropdown = () => {
       )}
     >
       <List<string>
-        items={data || []}
+        items={categories}
         itemKey="data"
         renderItems={({ value }) => (
           <Anchor
@@ -58,98 +43,91 @@ const CategoriesDropdown = () => {
   );
 };
 
-const HeaderOne = () => {
+const SearchInput = () => {
   return (
-    <div className={styles.headerFirst}>
-      <Logo />
-      <SearchForm
-        to="/products?search="
-        className={styles.searchForm}
-      >
-        {({ setSearchQuery }) => (
-          <>
-            <input
-              type="search"
-              placeholder="Search"
-              onChange={(event) => setSearchQuery(event.target.value)}
-              className={styles.searchInput}
-            />
-            <Button
-              type="submit"
-              startIcon={
-                <MagnifyingGlass
-                  weight="light"
-                  size={20}
-                />
-              }
-              title="Search"
-              className={styles.searchButton}
-            />
-          </>
-        )}
-      </SearchForm>
-      <div className={styles.actions}>
-        <Button
-          startIcon={
-            <ShoppingCartSimple
-              weight="regular"
-              size={25}
-            />
-          }
-          title=""
-        />
-        <UserProfile />
-        {/* <Dropdown
-          opener={({ setExpand }) => (
-            <Button
-              title=""
-              startIcon={
-                <UserCircle
-                  weight="regular"
-                  size={30}
-                />
-              }
-              onClick={() => setExpand((state) => !state)}
-            />
-          )}
-        >
-          <></>
-        </Dropdown> */}
-      </div>
-    </div>
-  );
-};
+    <SearchForm
+      to="/products?search="
+      className={styles.search}
+    >
+      {({ setSearchQuery }) => (
+        <>
+          <input
+            type="search"
+            placeholder="Search"
+            onChange={(event) => setSearchQuery(event.target.value)}
+            className={styles.searchInput}
+          />
+          <Button
+            type="submit"
+            startIcon={
+              <MagnifyingGlass
+                weight="light"
+                size={20}
+              />
+            }
+            title="Search"
+            className={styles.searchButton}
+          />
+        </>
+      )}
+    </SearchForm>
+  )
+}
 
-const HeaderTwo = () => {
+const UserActions = () => {
   return (
-    <div className={styles.headerSecond}>
-      <CategoriesDropdown />
-      <nav>
-        <Anchor
-          href=""
-          title="Ready to ship"
-        />
-        <Anchor
-          href=""
-          title="Personal Protective"
-        />
-        {/* <Link to=""></Link> */}
-      </nav>
+    <div>
+      <Button className={styles.cartButton} startIcon={<ShoppingCartSimple size={20} />} />
     </div>
-  );
-};
+  )
+}
 
 export const MainLayout = () => {
+  const { data } = useQuery<{ categories: string[], randomCategories: string[] }>(API_GET_CATEGORIES, (rawData: string[]) => {
+    const randomCategories = [];
+    const RANDOM_LIMIT = 5;
+    for (let i = 0; i < rawData.length; i++) {
+      randomCategories.push(rawData[Math.floor(Math.random() * rawData.length)])
+      if (randomCategories.length >= RANDOM_LIMIT) {
+        break;
+      }
+    }
+
+    return {
+      categories: rawData,
+      randomCategories
+    }
+  });
+
   return (
     <div className={styles.layout}>
       <header>
-        <HeaderOne />
-        <HeaderTwo />
+        <nav>
+          <div className={styles.authWrapper}>
+            <Anchor title="Register" href="" />
+            <Anchor title="Login" href="" />
+          </div>
+        </nav>
+        <div className={styles.headerContent}>
+          <Logo />
+          <SearchInput />
+          <UserActions />
+        </div>
+        <div className={styles.headerSubContent}>
+          <CategoriesDropdown categories={data?.categories || []} />
+          <List<string> items={data?.randomCategories || []} itemKey="data" className={styles.randomCategoriesList} renderItems={({ value }) =>
+            <Button title={value} />
+          } />
+        </div>
       </header>
       <main>
         <Outlet />
       </main>
-      <footer>Footer</footer>
+      <footer>
+        <span className={styles.copyright}>
+          &copy; {new Date().getUTCFullYear().toString()} DummyShop, All Rights Reservered?
+        </span>
+      </footer>
     </div>
   );
 };

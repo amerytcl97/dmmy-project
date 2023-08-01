@@ -19,7 +19,7 @@ import Login from "./pages/Login/Login";
 const ProductsApp = () => {
   return (
     <Routes>
-      <Route element={<FilterSidebarLayout />}>
+      <Route element={<MainLayout />}>
         <Route
           index
           element={<Products />}
@@ -44,13 +44,11 @@ const App = () => {
         path="/login"
         element={<Login />}
       />
-      <Route element={<MainLayout />}>
-        <Route
-          path="/products/*"
-          element={<ProductsApp />}
-        />
-        {/* <Route path="/products/:query" element={<Search />} /> */}
-      </Route>
+      <Route
+        path="/products/*"
+        element={<ProductsApp />}
+      />
+      {/* <Route path="/products/:query" element={<Search />} /> */}
     </Routes>
   );
 };

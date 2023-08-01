@@ -10,3 +10,4 @@ export * from "./Layouts/FilterSidebarLayout/FilterSidebarLayout";
 export * from "./ProductCard/ProductCard";
 export * from "./Elements/List/List";
 export * from "./Elements/Dropdown/Dropdown";
+export * from "./Elements/Input/Input";

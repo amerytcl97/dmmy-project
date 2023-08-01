@@ -3,7 +3,7 @@ import styles from "./Login.module.scss";
 import Form from "@components/Elements/Form/Form";
 
 const Login = () => {
-  const onSubmit = () => {};
+  const onSubmit = () => { };
 
   return (
     <section>
