@@ -5,8 +5,7 @@ button {
     @include flex--row--center;
     cursor: pointer;
 
-    span {
-    }
+    span {}
 }
 
 
@@ -14,6 +13,4 @@ button {
     font-size: small;
 }
 
-.buttonMd {
-    
-}
+.buttonMd {}
