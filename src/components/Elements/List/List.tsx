@@ -15,7 +15,7 @@ type ListProps<TList> = {
 };
 
 export const List = <TList extends Record<string, unknown> | Primitive>(props: ListProps<TList>) => {
-  const { items = [], renderItems, itemKey, className, emptyComponent, includePagination = true } = props;
+  const { items = [], renderItems, itemKey, className, emptyComponent, includePagination = false } = props;
 
   if (!items || !items.length) {
     return <>{emptyComponent}</>;
@@ -36,7 +36,12 @@ export const List = <TList extends Record<string, unknown> | Primitive>(props: L
           return <li key={selectedIndex as Key}>{renderItems({ value: value, index: index })}</li>;
         })}
       </ul>
-      {includePagination && <Pagination itemsTotal={100} itemsLimit={API_GET_PRODUCTS_LIMIT} />}
+      {includePagination && (
+        <Pagination
+          itemsTotal={100}
+          itemsLimit={API_GET_PRODUCTS_LIMIT}
+        />
+      )}
     </>
   );
 };

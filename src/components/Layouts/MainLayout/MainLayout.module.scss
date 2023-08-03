@@ -8,7 +8,7 @@
     flex: 1;
     border-radius: $border-radius--sm;
 
-    &>input {
+    & > input {
         // all: unset;
         border: none;
         font-size: small;
@@ -24,7 +24,7 @@
         }
     }
 
-    &>.searchButton {
+    & > .searchButton {
         border-radius: $border-radius--sm;
         background-color: $background-main--theme;
         padding-inline: 0.5rem;
@@ -43,7 +43,7 @@
     grid-template-rows: 1fr 100% 1fr;
     gap: 1rem;
 
-    >header {
+    > header {
         @include flex--col;
         background-color: $background-main--theme;
         color: $background-main--text;
@@ -69,7 +69,7 @@
         .headerSubContent {
             @include flex--row--center;
             border-top: 1px dashed $background-main--border;
-            // justify-content: space-between;
+            justify-content: space-between;
             padding-top: 0.5rem;
 
             .categoriesBtn {
@@ -89,10 +89,10 @@
                 height: 15rem;
                 padding: 1rem;
 
-                &>li {
+                & > li {
                     padding-inline: auto;
 
-                    &>a {
+                    & > a {
                         text-transform: capitalize;
                         text-align: center;
 
@@ -115,10 +115,6 @@
     }
 }
 
-
-
-
-
 main {
     flex: 1;
     padding-inline: $layout--padding;
@@ -131,7 +127,7 @@ footer {
     color: $background-main--text;
     padding-block: 2rem;
 
-    &>.copyright {
+    & > .copyright {
         font-weight: 500;
         font-size: small;
     }
@@ -144,7 +140,7 @@ nav {
     font-size: small;
     // gap: 1.5rem;
 
-    &>.authWrapper {
+    & > .authWrapper {
         @include flex--row--center;
         border-bottom: 1px dashed $background-main--border;
         padding-bottom: 0.4rem;
