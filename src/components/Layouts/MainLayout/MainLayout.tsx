@@ -1,4 +1,4 @@
-import { CaretDown, ListDashes, MagnifyingGlass, ShoppingCartSimple, UserCircle } from "phosphor-react";
+import { CaretDown, ListDashes, MagnifyingGlass, ShoppingCartSimple } from "phosphor-react";
 import { Button, Anchor, Logo, SearchForm, Dropdown, List } from "@components/index";
 import { Outlet } from "react-router-dom";
 import { useQuery } from "@hooks/UseQuery";
@@ -71,23 +71,26 @@ const SearchInput = () => {
         </>
       )}
     </SearchForm>
-  )
-}
+  );
+};
 
 const UserActions = () => {
   return (
     <div>
-      <Button className={styles.cartButton} startIcon={<ShoppingCartSimple size={20} />} />
+      <Button
+        className={styles.cartButton}
+        startIcon={<ShoppingCartSimple size={20} />}
+      />
     </div>
-  )
-}
+  );
+};
 
 export const MainLayout = () => {
-  const { data } = useQuery<{ categories: string[], randomCategories: string[] }>(API_GET_CATEGORIES, (rawData: string[]) => {
+  const { data } = useQuery<{ categories: string[]; randomCategories: string[] }>(API_GET_CATEGORIES, (rawData: string[]) => {
     const randomCategories = [];
     const RANDOM_LIMIT = 5;
     for (let i = 0; i < rawData.length; i++) {
-      randomCategories.push(rawData[Math.floor(Math.random() * rawData.length)])
+      randomCategories.push(rawData[Math.floor(Math.random() * rawData.length)]);
       if (randomCategories.length >= RANDOM_LIMIT) {
         break;
       }
@@ -95,8 +98,8 @@ export const MainLayout = () => {
 
     return {
       categories: rawData,
-      randomCategories
-    }
+      randomCategories,
+    };
   });
 
   return (
@@ -104,8 +107,14 @@ export const MainLayout = () => {
       <header>
         <nav>
           <div className={styles.authWrapper}>
-            <Anchor title="Register" href="" />
-            <Anchor title="Login" href="" />
+            <Anchor
+              title="Register"
+              href=""
+            />
+            <Anchor
+              title="Login"
+              href=""
+            />
           </div>
         </nav>
         <div className={styles.headerContent}>
@@ -115,18 +124,19 @@ export const MainLayout = () => {
         </div>
         <div className={styles.headerSubContent}>
           <CategoriesDropdown categories={data?.categories || []} />
-          <List<string> items={data?.randomCategories || []} itemKey="data" className={styles.randomCategoriesList} renderItems={({ value }) =>
-            <Button title={value} />
-          } />
+          <List<string>
+            items={data?.randomCategories || []}
+            itemKey="data"
+            className={styles.randomCategoriesList}
+            renderItems={({ value }) => <Button title={value} />}
+          />
         </div>
       </header>
       <main>
         <Outlet />
       </main>
       <footer>
-        <span className={styles.copyright}>
-          &copy; {new Date().getUTCFullYear().toString()} DummyShop, All Rights Reservered?
-        </span>
+        <span className={styles.copyright}>&copy; {new Date().getUTCFullYear().toString()} DummyShop, All Rights Reservered?</span>
       </footer>
     </div>
   );

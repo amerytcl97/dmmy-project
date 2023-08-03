@@ -8,7 +8,7 @@
     flex: 1;
     border-radius: $border-radius--sm;
 
-    & input {
+    & > input {
         // all: unset;
         border: none;
         font-size: small;
@@ -24,7 +24,7 @@
         }
     }
 
-    & .searchButton {
+    & > .searchButton {
         border-radius: $border-radius--sm;
         background-color: $background-main--theme;
         padding-inline: 0.5rem;
@@ -37,50 +37,48 @@
     }
 }
 
-
-
 .layout {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 100% 1fr;
     gap: 1rem;
 
-    & header {
+    & > header {
         @include flex--col;
-        background-color: #F31559;
+        background-color: #f31559;
         padding-inline: $layout--padding-inline;
         padding-bottom: 0.5rem;
         padding-top: 0.5rem;
         box-sizing: border-box;
         gap: 1rem;
 
-        & .headerContent {
+        & > .headerContent {
             @include flex--row--center;
             justify-content: space-between;
             gap: 4rem;
             flex-grow: 1;
-            position : sticky;
-            top : 0;
+            position: sticky;
+            top: 0;
 
             & .cartButton {
                 color: $background-main--text;
             }
         }
 
-        & .headerSubContent {
+        & > .headerSubContent {
             @include flex--row--center;
             border-top: 1px dashed $background-main--border;
             justify-content: space-between;
             padding-top: 0.5rem;
 
-            & .categoriesBtn {
+            & > .categoriesBtn {
                 gap: 0.3rem;
                 color: $background-main--text;
                 font-size: small;
                 font-weight: 500;
             }
 
-            & .categoriesDropdownMenu {
+            & > .categoriesDropdownMenu {
                 display: grid;
                 grid-template-columns: 1fr 1fr 1fr 1fr;
                 row-gap: 1.5rem;
@@ -88,10 +86,10 @@
                 height: 15rem;
                 padding: 1rem;
 
-                &>li {
+                & > li {
                     padding-inline: auto;
 
-                    &>a {
+                    & > a {
                         text-transform: capitalize;
                         text-align: center;
 
@@ -102,7 +100,7 @@
                 }
             }
 
-            & .randomCategoriesList {
+            & > .randomCategoriesList {
                 @include flex--row--center;
                 color: $background-main--text;
                 gap: 1rem;
@@ -123,11 +121,11 @@ main {
 footer {
     @include flex--col--center;
     background-color: $background-main--theme;
-    color : $background-main--text;
-    padding-block : 2rem;
+    color: $background-main--text;
+    padding-block: 2rem;
 
-    & .copyright {
-        font-weight : 500;
+    & > .copyright {
+        font-weight: 500;
         font-size: small;
     }
 }
@@ -139,11 +137,10 @@ nav {
     font-size: small;
     // gap: 1.5rem;
 
-    & .authWrapper {
+    & > .authWrapper {
         @include flex--row--center;
         border-bottom: 1px dashed $background-main--border;
         padding-bottom: 0.4rem;
-
 
         & a {
             padding-inline: 1rem;

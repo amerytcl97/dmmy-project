@@ -4,46 +4,80 @@
 .wrapper {
     @include flex--col--center;
 
-    & .title {
-        position: relative;
-
-        &::before {
-            content: " ";
-            position: absolute;
-            left: 0;
-            width: 5rem;
-            height: 0;
-            border: 1px solid red;
+    & > section {
+        & > header {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            position: relative;
+            // background-color: red;
+            & > span {
+                position: absolute;
+                font-size: 4.5rem;
+                margin-top: 2rem;
+                color: black;
+                left: 0;
+                top: 0;
+            }
+            & > img {
+                height: 15rem;
+                padding-block: 5rem;
+                background-color: transparent;
+            }
         }
 
-        &>h1 {
+        & > h1 {
             text-align: center;
             font-size: x-large;
-            margin : 0;
+            width: 100%;
+            // margin-top: 0;
+            // margin: 0;
+            position: relative;
+            &::before {
+                content: "";
+                display: block;
+                margin-top: 1rem;
+                position: absolute;
+                left: 0;
+                width: 5rem;
+                height: 0;
+                border: 1px dashed red;
+            }
+
+            &::after {
+                content: "";
+                display: block;
+                margin-top: 1rem;
+                position: absolute;
+                right: 0;
+                top: 0;
+                width: 5rem;
+                height: 0;
+                border: 1px dashed red;
+            }
         }
-    }
 
+        & > .productList {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
 
-    & .productList {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
+            @media (min-width: $screen--2xl) {
+                grid-template-columns: repeat(4, 1fr);
+            }
 
-        @media (min-width : $screen--2xl) {
-            grid-template-columns: repeat(4, 1fr);
-        }
+            @media (min-width: $screen--lg) {
+                grid-template-columns: repeat(4, 1fr);
+            }
 
-        @media (min-width: $screen--lg) {
-            grid-template-columns: repeat(4, 1fr);
-        }
+            @media (min-width: $screen--sm) {
+                grid-template-columns: repeat(3, 1fr);
+            }
 
-        @media (min-width: $screen--sm) {
-            grid-template-columns: repeat(3, 1fr);
-        }
-
-        &>li {
-            width: 1fr;
-            flex-basis: 0;
+            & > li {
+                width: 1fr;
+                flex-basis: 0;
+            }
         }
     }
 }

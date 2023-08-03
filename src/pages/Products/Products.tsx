@@ -3,7 +3,6 @@ import { API_GET_PRODUCTS } from "@constants";
 import { useQuery } from "@hooks/UseQuery";
 import styles from "./Products.module.scss";
 
-
 const Products = () => {
   const { data } = useQuery(
     (() => {
@@ -18,17 +17,22 @@ const Products = () => {
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.title}>
-        <h1>
-          Our Products
-        </h1>
-      </div>
-      <List<ProductCardProps>
-        items={data || []}
-        itemKey="title"
-        renderItems={({ value }) => <ProductCard {...value} />}
-        className={styles.productList}
-      />
+      <section>
+        <header>
+          <span>Shop with us</span>
+          <img
+            src="../../../public/shopping.svg"
+            alt=""
+          />
+        </header>
+        <h1>Our Products</h1>
+        <List<ProductCardProps>
+          items={data || []}
+          itemKey="title"
+          renderItems={({ value }) => <ProductCard {...value} />}
+          className={styles.productList}
+        />
+      </section>
     </div>
   );
 };
