@@ -1,22 +1,39 @@
 import { useEffect, useState } from "react";
-import "./Pagination.module.scss";
+import styles from "./Pagination.module.scss";
+import { Anchor } from "@components/index";
 
 type PaginationProps = {
-  pageCount: number;
+  itemsTotal: number;
+  itemsLimit: number;
+  // getSelectedPage: (page: number) => void;
 };
 
-export const Pagination = ({ pageCount }: PaginationProps) => {
-  //   const [arrPageCount, setArrPageCount] = useState<number[]>([]);
-  //   useEffect(() => {
-  //     const formatPageCount = () => {
-  //       setArrPageCount(Array.from({ length: pageCount }).map((val) => val));
-  //     };
-  //     formatPageCount();
-  //   }, []);
+export const Pagination = ({ itemsTotal, itemsLimit }: PaginationProps) => {
+
+  const [pages, setPages] = useState<number[]>([]);
+
+  useEffect(() => {
+    const formatPagination = () => {
+      setPages(Array.from({
+        length: (() => {
+          const totalPages = itemsTotal / itemsLimit;
+          return totalPages;
+        })()
+      }))
+    };
+
+    formatPagination();
+  }, [itemsLimit, itemsTotal])
 
   return (
-    <div>
-      <div></div>
+    <div className={styles.pagination}>
+      <ul>
+        {pages.map((page) =>
+          <li>
+            <Anchor href={""} title={page} />
+          </li>)
+        }
+      </ul>
     </div>
   );
 };

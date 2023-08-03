@@ -11,3 +11,4 @@ export * from "./ProductCard/ProductCard";
 export * from "./Elements/List/List";
 export * from "./Elements/Dropdown/Dropdown";
 export * from "./Elements/Input/Input";
+export * from "./Elements/Pagination/Pagination";

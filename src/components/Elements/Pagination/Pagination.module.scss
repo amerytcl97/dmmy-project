@@ -1,0 +1,10 @@
+@use "@/styles/flexes.scss" as *;
+
+.pagination {
+    + ul {
+        // @include flex--row--center;
+        // padding-inline: 1rem;
+        // padding-block: 0.5rem;
+        // gap: 1rem;
+    }
+}

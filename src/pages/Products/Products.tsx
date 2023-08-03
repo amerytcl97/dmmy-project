@@ -1,6 +1,7 @@
 import { List, ProductCard, ProductCardProps } from "@components/index";
 import { API_GET_PRODUCTS } from "@constants";
 import { useQuery } from "@hooks/UseQuery";
+import { Pagination } from "@components/Elements/Pagination/Pagination";
 import styles from "./Products.module.scss";
 
 const Products = () => {
@@ -32,6 +33,7 @@ const Products = () => {
           renderItems={({ value }) => <ProductCard {...value} />}
           className={styles.productList}
         />
+        <Pagination pageCount={0} />
       </section>
     </div>
   );
