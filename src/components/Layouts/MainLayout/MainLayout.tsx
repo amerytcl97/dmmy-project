@@ -87,10 +87,13 @@ const UserActions = () => {
 
 export const MainLayout = () => {
   const { data } = useQuery<{ categories: string[]; randomCategories: string[] }>(API_GET_CATEGORIES, (rawData: string[]) => {
-    const randomCategories = [];
+    const randomCategories: string[] = [];
     const RANDOM_LIMIT = 5;
     for (let i = 0; i < rawData.length; i++) {
-      randomCategories.push(rawData[Math.floor(Math.random() * rawData.length)]);
+      const randomIndex = Math.floor(Math.random() * rawData.length);
+      if (!randomCategories.some((randomCategory) => rawData[randomIndex] === randomCategory)) {
+        randomCategories.push(rawData[randomIndex]);
+      }
       if (randomCategories.length >= RANDOM_LIMIT) {
         break;
       }

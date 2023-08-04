@@ -1,10 +1,17 @@
 @use "@/styles/flexes.scss" as *;
+@import "@/styles/variables.scss";
 
 .pagination {
-    + ul {
-        // @include flex--row--center;
-        // padding-inline: 1rem;
-        // padding-block: 0.5rem;
-        // gap: 1rem;
+    margin-top: 2rem;
+    ul {
+        @include flex--row--center;
+        padding-inline: 1rem;
+        padding-block: 0.5rem;
+        border: 1px solid $background-main--border;
+        border-radius: $border-radius--sm;
+        gap: 2rem;
+
+        li {
+        }
     }
 }
