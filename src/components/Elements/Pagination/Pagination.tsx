@@ -12,7 +12,7 @@ type PaginationProps = {
 
 export const Pagination = ({ itemsTotal, itemsLimit, className }: PaginationProps) => {
   const [pages, setPages] = useState<number[]>([]);
-  const [currentURL, setCurrentURL] = useState("");
+  const [currentURLs, setCurrentURLs] = useState("");
 
   const location = useLocation();
 
@@ -24,17 +24,29 @@ export const Pagination = ({ itemsTotal, itemsLimit, className }: PaginationProp
         setPages((state) => [...state, index + 1]);
       }
 
+      console.log('Checking location', location.search);
+
       if (location.search) {
         if (location.search.indexOf("?")) {
-          setCurrentURL(`${location.pathname}&page=`);
+          setCurrentURLs(`${location.pathname}&page=`);
         } else {
-          setCurrentURL(`${location.pathname}?page=`);
+          setCurrentURLs(`${location.pathname}?page=`);
         }
       }
     };
 
     formatPagination();
-  }, [itemsLimit, itemsTotal, location.pathname, location.search]);
+  }, [currentURLs, itemsLimit, itemsTotal, location.pathname, location.search]);
+
+
+  if (!pages.length) {
+    return null;
+  }
+
+  if (!currentURLs) {
+    return null;
+  }
+
 
   return (
     <div className={clsx(styles.pagination, className)}>
@@ -42,7 +54,7 @@ export const Pagination = ({ itemsTotal, itemsLimit, className }: PaginationProp
         {pages.map((page) => (
           <li key={page}>
             <Anchor
-              href={`${currentURL}${page}`}
+              href={`${currentURLs}${page}`}
               title={page}
             />
           </li>

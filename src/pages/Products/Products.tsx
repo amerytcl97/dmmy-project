@@ -19,7 +19,7 @@ const Products = () => {
         <header>
           <span>Shop with us</span>
           <img
-            src="../../../public/shopping.svg"
+            src="/shopping.svg"
             alt=""
           />
         </header>
