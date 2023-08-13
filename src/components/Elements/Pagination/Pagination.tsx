@@ -12,9 +12,13 @@ type PaginationProps = {
 
 export const Pagination = ({ itemsTotal, itemsLimit, className }: PaginationProps) => {
   const [pages, setPages] = useState<number[]>([]);
-  const [currentURLs, setCurrentURLs] = useState("");
-
   const location = useLocation();
+
+  const formatHref = (page: number) => {
+    const searchParams = new URLSearchParams(location.search);
+    searchParams.set("page", page.toString());
+    return `${location.pathname}?${searchParams.toString()}`;
+  }
 
   useEffect(() => {
     const formatPagination = () => {
@@ -23,38 +27,19 @@ export const Pagination = ({ itemsTotal, itemsLimit, className }: PaginationProp
       for (let index = 0; index < totalPages; index++) {
         setPages((state) => [...state, index + 1]);
       }
-
-      console.log('Checking location', location.search);
-
-      if (location.search) {
-        if (location.search.indexOf("?")) {
-          setCurrentURLs(`${location.pathname}&page=`);
-        } else {
-          setCurrentURLs(`${location.pathname}?page=`);
-        }
-      }
     };
 
     formatPagination();
-  }, [currentURLs, itemsLimit, itemsTotal, location.pathname, location.search]);
-
-
-  if (!pages.length) {
-    return null;
-  }
-
-  if (!currentURLs) {
-    return null;
-  }
-
+  }, [itemsLimit, itemsTotal]);
 
   return (
     <div className={clsx(styles.pagination, className)}>
+      {/* {location.pathname} */}
       <ul>
         {pages.map((page) => (
           <li key={page}>
             <Anchor
-              href={`${currentURLs}${page}`}
+              href={formatHref(page)}
               title={page}
             />
           </li>

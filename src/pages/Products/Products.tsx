@@ -8,7 +8,7 @@ const Products = () => {
   const { data } = useQuery<{ products: ProductCardProps[]; total: number; limit: number }>(
     (() => {
       const url = new URL(API_GET_PRODUCTS);
-      url.searchParams.append("select", ["title", "price", "rating", "brand", "stock", "thumbnail"].join(","));
+      url.searchParams.append("select", ["title", "price", "rating", "brand", "stock", "thumbnail", "id"].join(","));
       return url.href;
     })()
   );

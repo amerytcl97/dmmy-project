@@ -9,14 +9,17 @@ export type ProductCardProps = {
   brand: string;
   stock: number;
   thumbnail: string;
+  id: string;
 };
 
 export const ProductCard = (props: ProductCardProps) => {
-  const { title, price, rating, brand, stock, thumbnail } = props;
+  const { title, price, rating, brand, stock, thumbnail, id } = props;
+
+  const href = `/products/${id}`;
 
   return (
     <Anchor
-      href="/products/"
+      href={href}
       title={
         <div className={styles.productCard}>
           <div className={styles.productCardImgContainer}>

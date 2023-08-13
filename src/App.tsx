@@ -5,6 +5,7 @@ import Products from "./pages/Products/Products";
 import { FilterSidebarLayout, MainLayout } from "./components/index";
 import Search from "./pages/Search/Search";
 import Login from "./pages/Login/Login";
+import ProductDetail from "./pages/ProductDetail/ProductDetail";
 
 // const router = createBrowserRouter([
 //   { path: "/", Component: Home },
@@ -27,6 +28,10 @@ const ProductsApp = () => {
         <Route
           path="search"
           element={<Search />}
+        />
+        <Route
+          path=":id"
+          element={<ProductDetail />}
         />
       </Route>
     </Routes>
