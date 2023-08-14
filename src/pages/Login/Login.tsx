@@ -18,10 +18,10 @@ const Login = () => {
         >
           {({ register }) => (
             <>
-              <fieldset>
+              <div>
                 <label>Username</label>
                 <input />
-              </fieldset>
+              </div>
             </>
           )}
         </Form>
