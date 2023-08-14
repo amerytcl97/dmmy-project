@@ -1,5 +1,5 @@
 import { CaretDown, ListDashes, MagnifyingGlass, ShoppingCartSimple } from "phosphor-react";
-import { Button, Anchor, Logo, SearchForm, Dropdown, List } from "@components/index";
+import { Button, Anchor, Logo, SearchForm, Dropdown, List, Input } from "@components/index";
 import { Outlet } from "react-router-dom";
 import { useQuery } from "@hooks/UseQuery";
 import { API_GET_CATEGORIES } from "@constants";
@@ -51,10 +51,10 @@ const SearchInput = () => {
     >
       {({ setSearchQuery }) => (
         <>
-          <input
+          <Input
             type="search"
             placeholder="Search"
-            onChange={(event) => setSearchQuery(event.target.value)}
+            onChange={(value) => setSearchQuery(value)}
             className={styles.searchInput}
           />
           <Button

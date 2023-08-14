@@ -1,15 +1,49 @@
 @use "@/styles/flexes.scss" as *;
 @import "@/styles/variables.scss";
 
-section {
+.wrapper {
     @include flex--col--center;
+    justify-content: center;
+    height: 100vh;
 
-    & .title {
+    .title {
         @include flex--row--center;
         gap: 0.5rem;
     }
 
-    & .loginContainer {
-        background-color: red;
+    section {
+        border: 1px solid gray;
+        border-radius: $border-radius--sm;
+        padding: 1rem;
+
+        header {
+            @include flex--row--center;
+            gap: 0.5rem;
+        }
+
+        form {
+            @include flex--col;
+            gap: 1rem;
+
+            a {
+                font-size: 0.8rem;
+                width: fit-content;
+                font-weight: normal;
+                flex: 1;
+            }
+        }
+
     }
 }
+
+
+// .inputField {
+//     @include flex--col;
+//     // gap: ;
+
+//     input {
+//         border-radius: $border-radius--sm;
+//         padding-block: 0.5rem;
+//         padding-inline: 0.5rem;
+//     }
+// }

@@ -8,12 +8,14 @@ export type InputProps = {
 export const Input = (props: InputProps) => {
   const {
     onChange = () => { },
-    type = "text"
+    type = "text",
+    ...inputProps
   } = props;
   return (
     <input
       type={type}
       onChange={(event) => onChange(event.target.value)}
+      {...inputProps}
     />
   );
 };

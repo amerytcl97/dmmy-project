@@ -3,5 +3,7 @@ a {
     cursor: pointer;
     transition: all 500ms ease-in-out;
     display: flex;
+    align-items: center;
     justify-content: center;
+    gap: 0.5rem;
 }

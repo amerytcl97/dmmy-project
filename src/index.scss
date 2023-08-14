@@ -35,6 +35,19 @@ li {
   all: unset;
 }
 
+// input {
+//   background-color: transparent;
+//   border: 1px solid black;
+//   color: black;
+//   transition: all 0.5s;
+
+//   &:focus {
+//     // border: currentColor;
+//     border: 1px solid blue;
+//     outline: none;
+//   }
+// }
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
